@@ -1,0 +1,14 @@
+# Локальный запуск: docker-compose up --build
+services:
+  bot:
+    build: .
+    container_name: nft-flip-bot
+    env_file:
+      - .env
+    environment:
+      - TZ=UTC
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
